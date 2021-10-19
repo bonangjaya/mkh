@@ -1,0 +1,56 @@
+Cara Install Mikhmon Di STB OpenWrt
+-----------------------------------
+Terminal :
+opkg update && opkg install php7 php7-cgi php7-mod-session php7-mod-gmp php7-mod-gettext php7-mod-iconv php7-mod-json php7-mod-pcntl nano htop unzip zoneinfo-asia
+
+Terminal :
+nano /etc/config/uhttpd
+
+option index_page 'index.html, index.php'
+option ubus_prefix '/ubus'
+list interpreter '.php=/usr/bin/php-cgi'
+
+ctrl+x y enter
+
+Terminal :
+cd /www
+
+Terminal :
+wget --no-check-certificate https://github.com/laksa19/mikhmonv3/archive/master.zip
+
+Terminal :
+ls
+
+Terminal :
+unzip master.zip
+
+Terminal :
+mv mikhmonv3-master mikhmonv3
+
+Terminal :
+ls
+
+Terminal :
+rm -rf master.zip
+
+Terminal :
+ls
+
+Terminal :
+nano info.php
+
+<?php
+   phpinfo();
+?>
+
+ctrl+x y enter
+
+Terminal :
+cd
+
+Terminal :
+reboot && exit
+
+Browser :
+192.168.1.1/mikhmonv3  > default login = mikhmon/1234
+
